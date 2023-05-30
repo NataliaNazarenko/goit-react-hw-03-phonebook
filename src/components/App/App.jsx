@@ -11,6 +11,20 @@ export class App extends React.Component {
     filter: '',
   };
 
+  componentDidMount() {
+    const contactsLS = JSON.parse(localStorage.getItem('contacts'));
+    if (contactsLS) {
+      this.setState({ contacts: contactsLS });
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    const { contacts } = this.state;
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+    }
+  }
+
   formSubmitHandler = contact => {
     const { contacts } = this.state;
     const existingContact = contacts.find(cont => cont.name === contact.name);

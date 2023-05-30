@@ -4,22 +4,24 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
-  margin-top: 20px;
+
+  width: ${props => props.theme.spacing(50)};
+  margin-bottom: ${props => props.theme.spacing(2.5)};
 `;
 
 export const Title = styled.p`
-  font-size: 16px;
-  margin: 0;
-  padding: 0;
+  font-size: ${props => props.theme.fontSizes.small};
+  line-height: ${props => props.theme.spacing(4.5)};
+  font-weight: 500;
+  margin-bottom: ${props => props.theme.spacing(1.25)};
+  margin-left: ${props => props.theme.spacing(1.25)};
 `;
 
 export const Input = styled.input`
   display: block;
-  padding: 8px 5px;
-  width: 190px;
-  color: #111827;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  padding: ${props => props.theme.spacing(2)} ${props => props.theme.spacing(1.25)};
+  color: ${props => props.theme.colors.dark};
+  border-radius: ${props => props.theme.spacing(2)};
+  border: ${props => props.theme.spacing(0.25)} solid ${props => props.theme.colors.gray};
+  box-shadow: ${props => props.theme.shadows.small};
 `;

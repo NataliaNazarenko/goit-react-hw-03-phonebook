@@ -2,45 +2,56 @@ import styled from '@emotion/styled';
 
 export const ContactsList = styled.ul`
   display: flex;
+  align-items: center;
   flex-direction: column;
-  list-style-type: decimal;
-  gap: 20px;
-  padding: 0;
+
+  gap: ${props => props.theme.spacing(2.5)};
 `;
 
 export const ContactItem = styled.li`
   display: flex;
   justify-content: space-between;
-  width: 280px;
+  width: ${props => props.theme.spacing(75)};
   align-items: center;
-  padding: 10px;
-  background-color: white;
-  border: 1px solid lightgray;
-  border-radius: 10px;
+  padding: ${props => props.theme.spacing(2.5)};
+
+  border-radius: ${props => props.theme.spacing(2)};
+  border: ${props => props.theme.spacing(0.25)} solid ${props => props.theme.colors.gray};
+  box-shadow: ${props => props.theme.shadows.small};
+  transition-property: transform, box-shadow;
+  transition-duration: 0.15s;
+
+  background-color: ${props => props.theme.colors.white};
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: ${props => props.theme.shadows.small};
+  }
 `;
 
 export const Contact = styled.p`
-  font-size: 16px;
+  font-size: ${props => props.theme.fontSizes.small};
+  line-height: ${props => props.theme.spacing(4.5)};
   margin: 0;
-  padding: 0;
 `;
 
 export const DeleteButton = styled.button`
   display: flex;
-  padding: 5px 5px;
-  background-color: #0ca021ad;
-  color: #ffffff;
-  font-size: 14px;
-  line-height: 1.25;
+  padding: ${props => props.theme.spacing(1.25)} ${props => props.theme.spacing(2)};
+  background: ${props => props.theme.colors.tagBackground};
+  color: ${props => props.theme.colors.white};
+  font-size: ${props => props.theme.fontSizes.small};
+
+  line-height: ${props => props.theme.spacing(4.5)};
   font-weight: 600;
   justify-content: center;
-  width: 70px;
-  border-radius: 5px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  width: ${props => props.theme.spacing(15)};
+  border-radius: ${props => props.theme.spacing(1.25)};
+  box-shadow: ${props => props.theme.shadows.small};
   cursor: pointer;
-  border: 1px solid #0ca021ad;
+  border: ${props => props.theme.spacing(0.25)} solid ${props => props.theme.colors.accent};
 
   :hover {
-    background-color: #046a31ad;
+    background: ${props => props.theme.colors.accent};
   }
 `;
